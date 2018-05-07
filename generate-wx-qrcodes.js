@@ -6,6 +6,17 @@ const APPID = ''
 const SECRET = ''
 const NUMBERS = 1
 
+main()
+
+async function main() {
+  for (let i = 0; i < NUMBERS; i++) {
+    const token = await getToken(APPID, SECRET)
+    const ticket = await getTicket(token, i+1)
+    const qrcodeData = await retriveQrcode(ticket)
+    fs.writeFile(`./qrcodes/${i+1}.jpg`, qrcodeData, err => console.log(err))
+  }
+}
+
 async function getToken(appid, secret) {
   const { data } = await axios.get(`https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=${appid}&secret=${secret}`)
   const { access_token } = data
@@ -35,15 +46,3 @@ async function retriveQrcode(ticket) {
   })
   return data
 }
-
-async function main() {
-  for (let i = 0; i < NUMBERS; i++) {
-    const token = await getToken(APPID, SECRET)
-    const ticket = await getTicket(token, i+1)
-    const qrcodeData = await retriveQrcode(ticket)
-    fs.writeFile(`./qrcodes/${i+1}.jpg`, qrcodeData, err => console.log(err))
-  }
-}
-
-main()
-
