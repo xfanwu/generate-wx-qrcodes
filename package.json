@@ -1,0 +1,22 @@
+{
+  "name": "generate-wx-qrcodes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "generate-wx-qrcodes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fagougou/generate-wx-qrcodes.git"
+  },
+  "author": "Time",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fagougou/generate-wx-qrcodes/issues"
+  },
+  "homepage": "https://github.com/fagougou/generate-wx-qrcodes#readme",
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
